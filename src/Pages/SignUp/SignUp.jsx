@@ -4,13 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/ContextProvider';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2'
 
 const SignUp = () => {
     const { UserCreate } = useContext(AuthContext)
-
-    const [errorMessage, setErrorMessage] = useState(" ")
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
+    // const [terms, setTerms] = useState(false)
 
 
     const handleUserCreate = (e) => {
@@ -21,22 +21,25 @@ const SignUp = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
-
-
-        setErrorMessage(" ")
+        const Accepted = form.terms.checked
 
 
         if (password.length < 6) {
-            setErrorMessage("Must be 6 charecter password!")
+            Swal.fire("Must be 6 charecter password!");
             return
         }
 
         else if (!/[A-Z]/.test(password)) {
-            setErrorMessage("Must be 1 charecter Uppercase!")
+            Swal.fire("Must be 1 charecter Uppercase!");
             return
         }
         else if (!/[a-z]/.test(password)) {
-            setErrorMessage("Must be 1 charecter lowercase!")
+            Swal.fire("Must be 1 charecter lowercase!");
+            return
+        }
+
+        if (!Accepted) {
+            Swal.fire("Please Accept Terms & Condition!");
             return
         }
 
@@ -58,9 +61,6 @@ const SignUp = () => {
                         const lastSignIn = result.user?.metadata?.lastSignInTime
                         const user_name = result.user?.displayName
                         const profile_pic = result.user?.photoURL
-                        // console.log(user_name)
-                        // console.log(profile_pic)
-
 
                         const user = { user_name, email, profile_pic, createAt, creationTime, lastLogin, lastSignIn }
                         console.log(user)
@@ -76,9 +76,14 @@ const SignUp = () => {
                             .then(res => res.json())
                             .then(data => {
                                 console.log(data)
+                                Swal.fire({
+                                    title: "Successfull",
+                                    text: "Your profile create successfull.",
+                                    icon: "success"
+                                });
                                 navigate("/login")
                             })
-                            
+
                     })
             })
             .catch(error => console.log(error))
@@ -144,7 +149,7 @@ const SignUp = () => {
                     </form>
                     <p className='text-center my-5'>Already have An Account ? <Link to="/login" className="text-blue-600 font-bold">Login</Link></p>
 
-                    {errorMessage && <p className='text-red-600 font-bold text-center'>{errorMessage}</p>}
+                    {/* {errorMessage && <p className='text-red-600 font-bold text-center'>{errorMessage}</p>} */}
                     {/* {successfull && <p className='text-green-600 font-bold text-center'>{successfull}</p>} */}
                 </div>
 

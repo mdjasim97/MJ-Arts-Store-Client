@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash, FaGithub, FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../Context/ContextProvider';
 import { useContext } from 'react';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -11,7 +12,7 @@ const Login = () => {
     const navigate = useNavigate()
     const [successfull, setSecessfull] = useState("")
     const [errorMessage, seterrorMessage] = useState("")
-    
+
 
     const { UserSignIn, SignInWithGoogle } = useContext(AuthContext)
 
@@ -30,9 +31,14 @@ const Login = () => {
             .then(result => {
                 console.log(result)
                 setSecessfull("User Login Successfull.")
+                Swal.fire({
+                    title: "Successfull",
+                    text: "User login successfull.",
+                    icon: "success"
+                });
                 navigate("/")
             })
-            .catch(error=>{
+            .catch(error => {
                 console.log(error)
                 seterrorMessage(error.message)
             })
@@ -40,12 +46,17 @@ const Login = () => {
 
     const handleGoogleSingIn = () => {
         SignInWithGoogle()
-        .then(result=>{
-            console.log(result)
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            .then(result => {
+                console.log(result)
+                Swal.fire({
+                    title: "Successfull",
+                    text: "User login successfull.",
+                    icon: "success"
+                });
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     const handleShowPassword = () => {
@@ -94,9 +105,9 @@ const Login = () => {
 
                 <div className='space-y-3'>
                     <h1 className='text-center text-xl'>Login With</h1>
-                    <button onClick={handleGoogleSingIn} className='btn mr-2'> <FcGoogle className='text-2xl'/>  Google</button>
-                    <button onClick={handleGoogleSingIn} className='btn mr-2'> <FaGithub className='text-2xl'/> GitHub</button>
-                    <button onClick={handleGoogleSingIn} className='btn'> <FaFacebook className='text-blue-600 text-2xl'/> Facebook</button>
+                    <button onClick={handleGoogleSingIn} className='btn mr-2'> <FcGoogle className='text-2xl' />  Google</button>
+                    <button onClick={handleGoogleSingIn} className='btn mr-2'> <FaGithub className='text-2xl' /> GitHub</button>
+                    <button onClick={handleGoogleSingIn} className='btn'> <FaFacebook className='text-blue-600 text-2xl' /> Facebook</button>
                 </div>
 
 
