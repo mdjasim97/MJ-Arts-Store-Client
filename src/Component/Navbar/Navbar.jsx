@@ -33,7 +33,7 @@ const Navbar = () => {
     </>
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-100 py-5">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,10 +43,10 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className="text-2xl font-bold">MJU Arts</a>
+                    <a className="text-4xl font-bold">MJU Arts</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 text-xl">
                         {links}
                     </ul>
                 </div>
@@ -57,10 +57,10 @@ const Navbar = () => {
 
                             <img src={user.photoURL} className='mr-2 w-12 h-12 rounded-full bg-base-200' alt="" title={user.displayName} />
 
-                            <button onClick={handleLogOut} className='btn'>logOut</button>
+                            <button onClick={handleLogOut} className='btn text-xl'>logOut</button>
                         </> : <>
-                            <Link to='/login'><button className='btn mr-2 bg-[#23BE0A] text-white'>Login</button></Link>
-                            <Link to="/signup"><button className='btn'>SignUp</button></Link>
+                            <Link to='/login'><button className='btn mr-2 bg-[#23BE0A] text-white text-xl'>Login</button></Link>
+                            <Link to="/signup"><button className='btn text-xl'>SignUp</button></Link>
                         </>
                     }
                 </div>
