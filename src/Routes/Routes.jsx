@@ -4,9 +4,10 @@ import ErorrPage from "../Pages/ErrorPage/ErorrPage";
 import HomePage from "../Pages/HomePage/HomePage";
 import Login from "../Pages/Login/Login"
 import SignUp from "../Pages/SignUp/SignUp";
-import AddCraft from "../Component/AddCraft/AddCraft";
+import AddCraft from "../Pages/AddCraft/AddCraft";
 import PrivateRoutes from "./PrivateRoutes";
 import CraftDetails from "../Pages/CraftDetails/CraftDetails";
+import CraftItemAll from "../Pages/CraftItemAll/CraftItemAll";
 
 const router = createBrowserRouter([
     {
@@ -20,10 +21,16 @@ const router = createBrowserRouter([
                 element : <HomePage/>,
                 loader : ()=> fetch("http://localhost:4000/")
             },
+
+            {
+                path : "/all",
+                element : <CraftItemAll/>,
+                loader : ()=> fetch("http://localhost:4000/")
+            },
             
             {
                 path : "/addCraft",
-                element : <PrivateRoutes><AddCraft/></PrivateRoutes>
+                element : <AddCraft/>
             },
 
             {

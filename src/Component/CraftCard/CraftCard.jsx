@@ -34,8 +34,8 @@ const CraftCard = ({ craftData }) => {
                             <p className='text-xl ml-2 font-bold'>{rating}</p>
                         </div>
                     </div>
-                    <div className='mb-5'>
-                        <Link to={`details/${_id}`}><button className='btn bg-[#23BE0A] text-white w-full text-xl'>View Details</button></Link>
+                    <div className=''>
+                        <Link to={`details/${_id}`}><button className='btn bg-[#23BE0A] text-white w-full text-xl mb-5'>View Details</button></Link>
                     </div>
                 </div>
             </div>

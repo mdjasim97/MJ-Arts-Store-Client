@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-center bg-gray-100 text-black ">
+            <footer className="footer footer-center bg-[#23BE0A] text-white ">
                 <aside className='pt-10'>
                     <img src="https://i.postimg.cc/c1MD2gGt/logo.jpg" className='h-16' alt="" />
                     <p className="font-bold text-4xl">MJU Art & Craft Ltd.</p>

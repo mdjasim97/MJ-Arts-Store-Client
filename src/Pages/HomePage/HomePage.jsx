@@ -11,14 +11,14 @@ const HomePage = () => {
         <div>
             <Bannar />
 
-            <div className='text-center my-10'>
-                <h1 className='text-4xl font-bold'>Craft Items {craftitem.length}</h1>
+            <div className='text-center my-10 space-y-3'>
+                <h1 className='text-4xl font-bold'>Craft Items Section </h1>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, autem.</p>
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-10'>
                 {
-                    craftitem.map((craft, index) => <CraftCard
+                    craftitem.slice(0,6).map((craft, index) => <CraftCard
                         key={index}
                         craftData={craft}
                     ></CraftCard>)
