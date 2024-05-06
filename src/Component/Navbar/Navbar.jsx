@@ -43,7 +43,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className="text-4xl font-bold">MJU Arts</a>
+                    <a className="text-2xl lg:text-4xl font-bold">MJU Arts</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-xl">
@@ -57,10 +57,10 @@ const Navbar = () => {
 
                             <img src={user.photoURL} className='mr-2 w-12 h-12 rounded-full bg-base-200' alt="" title={user.displayName} />
 
-                            <button onClick={handleLogOut} className='btn text-xl'>logOut</button>
+                            <button onClick={handleLogOut} className='btn text-base lg:text-xl'>logOut</button>
                         </> : <>
-                            <Link to='/login'><button className='btn mr-2 bg-[#23BE0A] text-white text-xl'>Login</button></Link>
-                            <Link to="/signup"><button className='btn text-xl'>SignUp</button></Link>
+                            <Link to='/login'><button className='btn mr-2 bg-[#23BE0A] text-white text-base lg:text-xl'>Login</button></Link>
+                            <Link to="/signup"><button className='btn text-base lg:text-xl'>SignUp</button></Link>
                         </>
                     }
                 </div>

@@ -103,7 +103,7 @@ const Login = () => {
                 </div>
 
 
-                <div className='space-y-3'>
+                <div className='space-y-3 mx-2'>
                     <h1 className='text-center text-xl'>Login With</h1>
                     <button onClick={handleGoogleSingIn} className='btn mr-2'> <FcGoogle className='text-2xl' />  Google</button>
                     <button onClick={handleGoogleSingIn} className='btn mr-2'> <FaGithub className='text-2xl' /> GitHub</button>
