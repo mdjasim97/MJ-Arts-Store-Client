@@ -157,10 +157,10 @@ const AddCraft = () => {
                                 </label>
                                 <select onChange={processingTimeOptions} className="input bg-base-200 w-full text-lg">
                                     <option selected disabled>Select Delivary Options</option>
-                                    <option value="1-3 days">1-3 Days</option>
-                                    <option value="4-7 days">4-7 Days</option>
-                                    <option value="1-2 week">1-2 week</option>
-                                    <option value="3-5 week">3-5 week</option>
+                                    <option value="1-3 days">1-3 business days</option>
+                                    <option value="4-7 days">4-7 business days</option>
+                                    <option value="1-2 week">1-2 weeks</option>
+                                    <option value="3-5 week">3-6 week</option>
                                 </select>
                             </div>
 

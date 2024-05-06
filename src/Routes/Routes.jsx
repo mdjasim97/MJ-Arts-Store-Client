@@ -35,7 +35,9 @@ const router = createBrowserRouter([
 
             {
                 path : "/details/:id",
-                element : <CraftDetails/>
+                element : <CraftDetails/>,
+                loader : ({params})=>fetch(`http://localhost:4000/craft/${params.id}`)
+                // http://localhost:4000/craft/66371cba60a20a9a3b48dc5a
             },
             {
                 path : "/myList",

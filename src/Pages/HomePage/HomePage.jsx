@@ -126,10 +126,6 @@ const HomePage = () => {
                 </div>
             </div>
 
-
-            {/* footer Component Added */}
-            <Footer/>
-
         </div>
     );
 };
