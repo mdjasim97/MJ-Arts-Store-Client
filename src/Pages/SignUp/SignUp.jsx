@@ -10,7 +10,7 @@ const SignUp = () => {
     const { UserCreate } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
-    // const [terms, setTerms] = useState(false)
+
 
 
     const handleUserCreate = (e) => {
@@ -148,9 +148,6 @@ const SignUp = () => {
                         </div>
                     </form>
                     <p className='text-center my-5'>Already have An Account ? <Link to="/login" className="text-blue-600 font-bold">Login</Link></p>
-
-                    {/* {errorMessage && <p className='text-red-600 font-bold text-center'>{errorMessage}</p>} */}
-                    {/* {successfull && <p className='text-green-600 font-bold text-center'>{successfull}</p>} */}
                 </div>
 
 

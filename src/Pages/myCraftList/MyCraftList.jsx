@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/ContextProvider';
 import { useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 const MyCraftList = () => {
 
@@ -24,10 +25,22 @@ const MyCraftList = () => {
         console.log(`delete id : ${id}`)
 
         fetch(`http://localhost:4000/delete/${id}`, {
-            method : "delete"
+            method: "delete",
         })
-        .then(res => res.json())
-        .then(data => console.log(data))
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    Swal.fire({
+                        title: "Successful",
+                        text: "Craft item delate successful.",
+                        icon: "success"
+                    });
+
+                    const remaining = item.filter(item => item._id !== id)
+                    setItem(remaining)
+                }
+            })
     }
 
     return (
@@ -67,7 +80,7 @@ const MyCraftList = () => {
                                 </div>
                                 <div className='grid grid-cols-2 gap-2'>
                                     <Link to={`/update/${item._id}`}><button className='btn bg-[#23BE0A] text-white w-full text-xl mb-5'>Update</button></Link>
-                                    <button onClick={()=>handleDeleteCraft(`${item._id}`)} className='btn bg-[#23BE0A] text-white w-full text-xl mb-5'>Delete</button>
+                                    <button onClick={() => handleDeleteCraft(`${item._id}`)} className='btn bg-[#23BE0A] text-white w-full text-xl mb-5'>Delete</button>
                                 </div>
                             </div>
                         </div>

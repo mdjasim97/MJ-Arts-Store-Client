@@ -9,6 +9,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import CraftDetails from "../Pages/CraftDetails/CraftDetails";
 import CraftItemAll from "../Pages/CraftItemAll/CraftItemAll";
 import MyCraftList from "../Pages/myCraftList/MyCraftList";
+import UpdateCraft from "../Pages/Update/UpdateCraft";
 
 const router = createBrowserRouter([
     {
@@ -20,13 +21,13 @@ const router = createBrowserRouter([
             {
                 path : "/",
                 element : <HomePage/>,
-                loader : ()=> fetch("http://localhost:4000/")
+                loader : ()=> fetch("http://localhost:4000/craft")
             },
 
             {
                 path : "/all",
                 element : <CraftItemAll/>,
-                loader : ()=> fetch("http://localhost:4000/")
+                loader : ()=> fetch("http://localhost:4000/craft")
             },
             
             {
@@ -40,10 +41,16 @@ const router = createBrowserRouter([
                 loader : ({params})=>fetch(`http://localhost:4000/craft/${params.id}`)
                 // http://localhost:4000/craft/66371cba60a20a9a3b48dc5a
             },
+
             {
                 path : "/myList",
                 element : <MyCraftList/>,
-                loader : ()=> fetch("http://localhost:4000/")
+            },
+
+            {
+                path : "/update/:id",
+                element : <UpdateCraft/>,
+                loader : ({params})=> fetch(`http://localhost:4000/update/${params.id}`)
             },
 
             {
