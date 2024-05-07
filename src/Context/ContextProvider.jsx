@@ -6,6 +6,7 @@ export const AuthContext = createContext()
 const ContextProvider = ({children}) => {
 
     const [user, setUser] = useState(null)
+    const [userEmail, setUserEmail] = useState(null)
     const ProviderGoogle = new GoogleAuthProvider()
 
 
@@ -27,6 +28,7 @@ const ContextProvider = ({children}) => {
         const unSubcribe = onAuthStateChanged(auth, currentUser =>{
             console.log("Current User : ", currentUser)
             setUser(currentUser)
+            setUserEmail(currentUser.email)
         })
 
         return () => unSubcribe()
@@ -42,6 +44,7 @@ const ContextProvider = ({children}) => {
         UserSignIn,
         logOut,
         user,
+        userEmail,
         SignInWithGoogle
     }
 

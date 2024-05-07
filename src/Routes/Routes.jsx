@@ -8,6 +8,7 @@ import AddCraft from "../Pages/AddCraft/AddCraft";
 import PrivateRoutes from "./PrivateRoutes";
 import CraftDetails from "../Pages/CraftDetails/CraftDetails";
 import CraftItemAll from "../Pages/CraftItemAll/CraftItemAll";
+import MyCraftList from "../Pages/myCraftList/MyCraftList";
 
 const router = createBrowserRouter([
     {
@@ -41,7 +42,8 @@ const router = createBrowserRouter([
             },
             {
                 path : "/myList",
-                element : <PrivateRoutes><HomePage/></PrivateRoutes>
+                element : <MyCraftList/>,
+                loader : ()=> fetch("http://localhost:4000/")
             },
 
             {

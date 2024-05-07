@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Context/ContextProvider';
 
 const AddCraft = () => {
+
+    const {user} = useContext(AuthContext)
 
 
     const [category, setCategory] = useState(" ")
@@ -168,7 +171,7 @@ const AddCraft = () => {
                                 <label className="label">
                                     <span className="label-text font-bold text-xl">User Name </span>
                                 </label>
-                                <input type="text" name="userName" placeholder="Enter your Name" className="input bg-base-200 w-full text-lg" required />
+                                <input type="text" name="userName" defaultValue={user?.displayName} placeholder="Enter your Name" className="input bg-base-200 w-full text-lg" required />
                             </div>
 
 
@@ -176,7 +179,7 @@ const AddCraft = () => {
                                 <label className="label">
                                     <span className="label-text font-bold text-xl">User email </span>
                                 </label>
-                                <input type="text" name="email" placeholder="Enter your email" className="input bg-base-200 text-lg w-full" required />
+                                <input type="text" name="email" defaultValue={user?.email} placeholder="Enter your email" className="input bg-base-200 text-lg w-full" required />
                             </div>
                         </div>
 
