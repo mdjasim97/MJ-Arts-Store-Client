@@ -66,7 +66,7 @@ const SignUp = () => {
                         console.log(user)
 
                         // user create and data store mongoDB
-                        fetch("http://localhost:4000/users", {
+                        fetch("https://art-craft-store-server-ruddy.vercel.app/users", {
                             method: "post",
                             headers: {
                                 "content-type": "application/json"

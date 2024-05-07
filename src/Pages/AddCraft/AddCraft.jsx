@@ -4,7 +4,7 @@ import { AuthContext } from '../../Context/ContextProvider';
 
 const AddCraft = () => {
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
 
     const [category, setCategory] = useState(" ")
@@ -13,21 +13,21 @@ const AddCraft = () => {
     const [stock, setStock] = useState(" ")
 
 
-        const categoryOptions = (e) => {
-            setCategory(e.target.value)
-        }
+    const categoryOptions = (e) => {
+        setCategory(e.target.value)
+    }
 
-        const customaizationOptions = (e) => {
-            setCustomaization(e.target.value)
-        }
+    const customaizationOptions = (e) => {
+        setCustomaization(e.target.value)
+    }
 
-        const processingTimeOptions = (e) => {
-            setProcessTime(e.target.value)
-        }
+    const processingTimeOptions = (e) => {
+        setProcessTime(e.target.value)
+    }
 
-        const handleStockOptions = (e) => {
-            setStock(e.target.value)
-        }
+    const handleStockOptions = (e) => {
+        setStock(e.target.value)
+    }
 
 
     const handleAddCraftItem = (e) => {
@@ -46,36 +46,36 @@ const AddCraft = () => {
         const user_email = form.email.value;
         const image = form.photo.value;
 
-        const newCraft = {item_name, subcategory_name, short_description, price, rating, customization, processing_time, stockStatus, user_name, user_email, image }
+        const newCraft = { item_name, subcategory_name, short_description, price, rating, customization, processing_time, stockStatus, user_name, user_email, image }
         console.log(newCraft)
 
 
-        fetch("http://localhost:4000/craftAdd",{
-            method : "post",
-            headers : {
-                "content-type" : "application/json"
+        fetch("https://art-craft-store-server-ruddy.vercel.app/craftAdd", {
+            method: "post",
+            headers: {
+                "content-type": "application/json"
             },
-            body : JSON.stringify(newCraft)
+            body: JSON.stringify(newCraft)
         })
-        .then(res=> res.json())
-        .then(data=> {
-            console.log(data)
-            if(data.insertedId){
-                Swal.fire({
-                    title: "Successfull",
-                    text: "New Craft Item Added Successfully.",
-                    icon: "success"
-                });
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Successfull",
+                        text: "New Craft Item Added Successfully.",
+                        icon: "success"
+                    });
+                }
+            })
 
     }
 
-    
 
-    
 
-    
+
+
+
     return (
         <div>
             <div className='bg-base-200 p-2 lg:p-28'>
@@ -192,7 +192,7 @@ const AddCraft = () => {
 
                                 </select>
                             </div>
-                            
+
                             <div className="grid lg:col-span-2 form-control w-full">
                                 <label className="label">
                                     <span className="label-text text-xl font-bold">Craft Photo URL </span>

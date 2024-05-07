@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Bannar from '../../Component/Banner/Bannar';
 import { useLoaderData } from 'react-router-dom';
 import CraftCard from '../../Component/CraftCard/CraftCard';
-import Footer from '../../Component/Footer/Footer';
 
 const HomePage = () => {
     const craftitem = useLoaderData()
     console.log(craftitem)
+
+    const [datalength, setDataLength] = useState(6)
     return (
         <div>
             <Bannar />
@@ -18,7 +19,7 @@ const HomePage = () => {
 
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-10'>
                 {
-                    craftitem.slice(0,6).map((craft, index) => <CraftCard
+                    datalength.map((craft, index) => <CraftCard
                         key={index}
                         craftData={craft}
                     ></CraftCard>)

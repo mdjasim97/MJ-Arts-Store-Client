@@ -8,19 +8,21 @@ const ContextProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [userEmail, setUserEmail] = useState(null)
     const ProviderGoogle = new GoogleAuthProvider()
+    const [loader, setLoader] = useState(false)
 
 
     const UserCreate = (email, password) => {
-        // loading(true)
+        setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const UserSignIn = (email, password) => {
-        // loading(true)
+        setLoader(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const SignInWithGoogle = () => {
+        setLoader(true)
         return signInWithPopup(auth, ProviderGoogle)
     }
 
@@ -28,6 +30,7 @@ const ContextProvider = ({children}) => {
         const unSubcribe = onAuthStateChanged(auth, currentUser =>{
             console.log("Current User : ", currentUser)
             setUser(currentUser)
+            setLoader(false)
         })
 
         return () => unSubcribe()
@@ -44,6 +47,7 @@ const ContextProvider = ({children}) => {
         logOut,
         user,
         userEmail,
+        loader,
         SignInWithGoogle
     }
 

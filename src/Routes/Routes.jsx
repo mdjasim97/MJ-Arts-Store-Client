@@ -21,13 +21,13 @@ const router = createBrowserRouter([
             {
                 path : "/",
                 element : <HomePage/>,
-                loader : ()=> fetch("http://localhost:4000/craft")
+                loader : ()=> fetch("https://art-craft-store-server-ruddy.vercel.app/craft")
             },
 
             {
                 path : "/all",
                 element : <CraftItemAll/>,
-                loader : ()=> fetch("http://localhost:4000/craft")
+                loader : ()=> fetch("https://art-craft-store-server-ruddy.vercel.app/craft")
             },
             
             {
@@ -38,8 +38,8 @@ const router = createBrowserRouter([
             {
                 path : "/details/:id",
                 element : <PrivateRoutes><CraftDetails/></PrivateRoutes>,
-                loader : ({params})=>fetch(`http://localhost:4000/craft/${params.id}`)
-                // http://localhost:4000/craft/66371cba60a20a9a3b48dc5a
+                loader : ({params})=>fetch(`https://art-craft-store-server-ruddy.vercel.app/craft/${params.id}`)
+                // https//art-craft-store-server-ruddy.vercel.app/craft/66371cba60a20a9a3b48dc5a
             },
 
             {
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             {
                 path : "/update/:id",
                 element : <PrivateRoutes><UpdateCraft/></PrivateRoutes>,
-                loader : ({params})=> fetch(`http://localhost:4000/craft/${params.id}`)
+                loader : ({params})=> fetch(`https://art-craft-store-server-ruddy.vercel.app/craft/${params.id}`)
             },
 
             {

@@ -55,7 +55,7 @@ const UpdateCraft = () => {
         console.log(updateCraft)
 
 
-        fetch(`http://localhost:4000/update/${updateItem._id}`, {
+        fetch(`https://art-craft-store-server-ruddy.vercel.app/update/${updateItem._id}`, {
             method: "put",
             headers: {
                 "content-type": "application/json"
