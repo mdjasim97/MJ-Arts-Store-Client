@@ -32,24 +32,24 @@ const router = createBrowserRouter([
             
             {
                 path : "/addCraft",
-                element : <AddCraft/>
+                element : <PrivateRoutes><AddCraft/></PrivateRoutes>
             },
 
             {
                 path : "/details/:id",
-                element : <CraftDetails/>,
+                element : <PrivateRoutes><CraftDetails/></PrivateRoutes>,
                 loader : ({params})=>fetch(`http://localhost:4000/craft/${params.id}`)
                 // http://localhost:4000/craft/66371cba60a20a9a3b48dc5a
             },
 
             {
                 path : "/myList",
-                element : <MyCraftList/>,
+                element : <PrivateRoutes><MyCraftList/></PrivateRoutes>,
             },
 
             {
                 path : "/update/:id",
-                element : <UpdateCraft/>,
+                element : <PrivateRoutes><UpdateCraft/></PrivateRoutes>,
                 loader : ({params})=> fetch(`http://localhost:4000/craft/${params.id}`)
             },
 

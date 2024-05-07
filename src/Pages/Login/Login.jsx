@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaGithub, FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../Context/ContextProvider';
@@ -8,8 +8,10 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
 
-    const [showPassword, setShowPassword] = useState(false)
+    const location = useLocation()
     const navigate = useNavigate()
+
+    const [showPassword, setShowPassword] = useState(false)
     const [successfull, setSecessfull] = useState("")
     const [errorMessage, seterrorMessage] = useState("")
 
@@ -36,7 +38,8 @@ const Login = () => {
                     text: "User login successfull.",
                     icon: "success"
                 });
-                navigate("/")
+
+                navigate(location?.state ? location.state : "/")
             })
             .catch(error => {
                 console.log(error)
@@ -53,6 +56,8 @@ const Login = () => {
                     text: "User login successfull.",
                     icon: "success"
                 });
+
+                navigate(location?.state ? location.state : "/")
             })
             .catch(error => {
                 console.log(error)
@@ -103,7 +108,7 @@ const Login = () => {
                 </div>
 
 
-                <div className='space-y-3 mx-2'>
+                <div className='space-y-3 mx-2 my-10 lg:my-0'>
                     <h1 className='text-center text-xl'>Login With</h1>
                     <button onClick={handleGoogleSingIn} className='btn mr-2'> <FcGoogle className='text-2xl' />  Google</button>
                     <button onClick={handleGoogleSingIn} className='btn mr-2'> <FaGithub className='text-2xl' /> GitHub</button>

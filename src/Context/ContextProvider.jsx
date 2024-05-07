@@ -28,7 +28,6 @@ const ContextProvider = ({children}) => {
         const unSubcribe = onAuthStateChanged(auth, currentUser =>{
             console.log("Current User : ", currentUser)
             setUser(currentUser)
-            setUserEmail(currentUser.email)
         })
 
         return () => unSubcribe()

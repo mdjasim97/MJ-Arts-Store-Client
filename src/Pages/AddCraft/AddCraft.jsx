@@ -33,10 +33,6 @@ const AddCraft = () => {
     const handleAddCraftItem = (e) => {
         e.preventDefault()
 
-        
-
-        
-
         const form = e.target
         const item_name = form.craftName.value;
         const subcategory_name = category;

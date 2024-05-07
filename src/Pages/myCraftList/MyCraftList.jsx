@@ -24,42 +24,60 @@ const MyCraftList = () => {
     const handleDeleteCraft = (id) => {
         console.log(`delete id : ${id}`)
 
-        fetch(`http://localhost:4000/delete/${id}`, {
-            method: "delete",
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.deletedCount > 0) {
-                    Swal.fire({
-                        title: "Successful",
-                        text: "Craft item delate successful.",
-                        icon: "success"
-                    });
 
-                    const remaining = item.filter(item => item._id !== id)
-                    setItem(remaining)
-                }
-            })
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:4000/delete/${id}`, {
+                    method: "delete",
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Successful",
+                                text: "Craft item delate successful.",
+                                icon: "success"
+                            });
+
+                            const remaining = item.filter(item => item._id !== id)
+                            setItem(remaining)
+                        }
+                    })
+
+            }
+        });
+
     }
 
     return (
-        <div className='lg:my-24 my-10'>
-            <h1 className='text-center text-4xl font-bold py-4'>My Craft List</h1>
+        <div className='lg:my-24 my-5'>
+            <h1 className='text-center text-3xl lg:text-4xl font-bold py-4'>My Craft List</h1>
             <hr className='h-1 bg-gray-400' />
 
-            <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-10 lg:mt-10'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 lg:mt-10 m-2'>
                 {
                     item.map(item => <div key={item._id}>
-                        <div className="grid grid-cols-3 p-2 shadow-xl border-2">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 p-2 shadow-xl border-2">
                             <div>
                                 <img src={item.image} alt="Shoes" className='h-full ' />
                             </div>
 
-                            <div className="px-4 space-y-3 col-span-2">
+                            <div className="lg:px-4 space-y-2 lg:space-y-3 lg:col-span-2">
                                 <div className='flex justify-between p-2'>
                                     <h1 className='font-bold text-xl'>#{item.subcategory_name}</h1>
-                                    <h1 className='font-bold text-xl p-2 text-white bg-[#23BE0A] rounded-lg'>{item.stockStatus}</h1>
+                                    <h1 className='font-bold lg:text-lg p-2 text-white bg-[#23BE0A] rounded-lg'>{item.stockStatus}</h1>
                                 </div>
                                 <h2 className="card-title font-bold text-2xl">Title : {item.item_name.length > 20 ? item.item_name.slice(0, 20) + "..." : item.item_name}</h2>
                                 <p className='font-bold text-xl'>Customization : {item.customization}</p>
