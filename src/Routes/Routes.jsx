@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             {
                 path : "/update/:id",
                 element : <UpdateCraft/>,
-                loader : ({params})=> fetch(`http://localhost:4000/update/${params.id}`)
+                loader : ({params})=> fetch(`http://localhost:4000/craft/${params.id}`)
             },
 
             {

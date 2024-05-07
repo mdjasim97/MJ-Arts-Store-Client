@@ -1,14 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/ContextProvider';
 import Swal from 'sweetalert2';
 
 const UpdateCraft = () => {
 
     const updateItem = useLoaderData()
-    // console.log(updateItem)
+    console.log(updateItem)
 
     const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
 
 
     const [category, setCategory] = useState(" ")
@@ -70,6 +71,7 @@ const UpdateCraft = () => {
                         text: "Craft item update Successfully.",
                         icon: "success"
                     });
+                    navigate("/myList")
                 }
             })
 
@@ -117,7 +119,8 @@ const UpdateCraft = () => {
                                 <label className="label">
                                     <span className="label-text text-xl font-bold">Short description </span>
                                 </label>
-                                <textarea type="text" name="description" placeholder="Craft item short description" className="input bg-base-200 resize-none h-24 w-full text-lg" required />
+                                <textarea type="text" name="description"
+                                defaultValue={updateItem?.short_description} placeholder="Craft item short description" className="input bg-base-200 resize-none h-24 w-full text-lg" required />
                             </div>
                         </div>
 
@@ -127,14 +130,14 @@ const UpdateCraft = () => {
                                 <label className="label">
                                     <span className="label-text text-xl font-bold">Price : </span>
                                 </label>
-                                <input type="text" name="price" placeholder="Enter craft price" className="input bg-base-200 w-full text-lg" required />
+                                <input type="text" name="price" defaultValue={updateItem?.price} placeholder="Enter craft price" className="input bg-base-200 w-full text-lg" required />
                             </div>
 
                             <div className="form-control w-full">
                                 <label className="label">
                                     <span className="label-text font-bold text-xl">Rating : </span>
                                 </label>
-                                <input type="text" name="rating" placeholder="Give craft rating" className="input bg-base-200 w-full text-lg" required />
+                                <input type="text" name="rating" defaultValue={updateItem?.rating} placeholder="Give craft rating" className="input bg-base-200 w-full text-lg" required />
                             </div>
 
 
@@ -199,13 +202,13 @@ const UpdateCraft = () => {
                                 <label className="label">
                                     <span className="label-text text-xl font-bold">Craft Photo URL </span>
                                 </label>
-                                <input type="text" name="photo" placeholder="Enter craft photo URL" className="input bg-base-200 w-full text-lg" required />
+                                <input type="text" name="photo" defaultValue={updateItem?.image} placeholder="Enter craft photo URL" className="input bg-base-200 w-full text-lg" required />
                             </div>
                         </div>
 
 
                         <div className="flex justify-center">
-                            <button className="btn bg-[#23BE0A] my-5 text-white">Add Craft Item</button>
+                            <button className="btn bg-[#23BE0A] my-5 text-white">Save Changes</button>
                         </div>
                     </form>
                 </div>
