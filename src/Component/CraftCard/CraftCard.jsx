@@ -20,7 +20,7 @@ const CraftCard = ({ craftData }) => {
                     <h2 className="card-title font-bold text-2xl">Title : {item_name.length > 20 ? item_name.slice(0, 20) + "..." : item_name}</h2>
                     <p>{short_description}</p>
                     <div className="flex justify-between items-center">
-                        <h1 className="text-3xl font-bold">
+                        <h1 className="text-2xl lg:text-3xl font-bold">
                             Price : {price}
                         </h1>
                         <div className="flex items-center">

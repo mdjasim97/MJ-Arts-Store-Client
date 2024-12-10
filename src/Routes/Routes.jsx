@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Root from "../Component/Root";
-import ErorrPage from "../Pages/ErrorPage/ErorrPage";
+import ErrorPage from "../Pages/ErrorPage/ErorrPage";
 import HomePage from "../Pages/HomePage/HomePage";
 import Login from "../Pages/Login/Login"
 import SignUp from "../Pages/SignUp/SignUp";
@@ -10,12 +9,13 @@ import CraftDetails from "../Pages/CraftDetails/CraftDetails";
 import CraftItemAll from "../Pages/CraftItemAll/CraftItemAll";
 import MyCraftList from "../Pages/myCraftList/MyCraftList";
 import UpdateCraft from "../Pages/Update/UpdateCraft";
+import Root from "../Layout/Root";
 
 const router = createBrowserRouter([
     {
         path : "/",
         element : <Root/>,
-        errorElement : <ErorrPage/>,
+        errorElement : <ErrorPage/>,
 
         children : [
             {

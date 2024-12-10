@@ -1,6 +1,6 @@
-import React from 'react';
 
-const Bannar = () => {
+
+const Banner = () => {
     return (
         <div>
             <div className="carousel w-full max-h-[500px]">
@@ -44,4 +44,4 @@ const Bannar = () => {
     );
 };
 
-export default Bannar;
+export default Banner;

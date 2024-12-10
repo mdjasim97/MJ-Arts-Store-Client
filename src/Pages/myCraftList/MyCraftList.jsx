@@ -98,7 +98,7 @@ const MyCraftList = () => {
                                 </div>
                                 <div className='grid grid-cols-2 gap-2'>
                                     <Link to={`/update/${item._id}`}><button className='btn bg-[#23BE0A] text-white w-full text-xl mb-5'>Update</button></Link>
-                                    <button onClick={() => handleDeleteCraft(`${item._id}`)} className='btn bg-[#23BE0A] text-white w-full text-xl mb-5'>Delete</button>
+                                    <button onClick={() => handleDeleteCraft(`${item._id}`)} className='btn bg-[#e67737] text-white w-full text-xl mb-5'>Delete</button>
                                 </div>
                             </div>
                         </div>

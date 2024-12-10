@@ -6,10 +6,16 @@ export default {
         "./node_modules/flowbite/**/*.js"
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'raleway': ['Raleway', 'serif'],
+                'Alegreya': ['Alegreya', 'serif'],
+            }
+        },
     },
+    // eslint-disable-next-line no-undef
     plugins: [require('daisyui')],
     daisyui: {
-        themes: ["light", "dark"],
+        themes: ["light", "synthwave"],
     }
 }
