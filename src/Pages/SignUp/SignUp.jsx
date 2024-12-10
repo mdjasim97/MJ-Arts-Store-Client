@@ -25,16 +25,16 @@ const SignUp = () => {
 
 
         if (password.length < 6) {
-            Swal.fire("Must be 6 charecter password!");
+            Swal.fire("Must be 6 character password!");
             return
         }
 
         else if (!/[A-Z]/.test(password)) {
-            Swal.fire("Must be 1 charecter Uppercase!");
+            Swal.fire("Must be 1 character Uppercase!");
             return
         }
         else if (!/[a-z]/.test(password)) {
-            Swal.fire("Must be 1 charecter lowercase!");
+            Swal.fire("Must be 1 character lowercase!");
             return
         }
 
@@ -77,8 +77,8 @@ const SignUp = () => {
                             .then(data => {
                                 console.log(data)
                                 Swal.fire({
-                                    title: "Successfull",
-                                    text: "Your profile create successfull.",
+                                    title: "Successful",
+                                    text: "Your profile create successful.",
                                     icon: "success"
                                 });
                                 navigate("/login")
@@ -96,8 +96,8 @@ const SignUp = () => {
     }
     return (
         <div>
-            <div className='flex flex-col lg:justify-center lg:items-center lg:py-16'>
-                <div className='bg-white p-4 lg:p-16 rounded-2xl'>
+            <div className='flex flex-col lg:justify-center lg:items-center lg:py-16 lg:bg-[url("https://i.ibb.co.com/F3Y2GH2/login-bg.jpg")] bg-no-repeat bg-cover w-full]'>
+                <div className='bg-white p-4 lg:px-16 rounded-2xl'>
                     <h1 className='text-4xl text-center lg:mx-36 mt-5 '> SignUp Form </h1>
                     <form onSubmit={handleUserCreate} className='space-y-4'>
 
@@ -144,7 +144,7 @@ const SignUp = () => {
 
 
                         <div className="form-control mt-6">
-                            <button className="btn bg-[#23BE0A] text-white">Register</button>
+                            <button className="btn bg-orange-400 text-white">Register</button>
                         </div>
                     </form>
                     <p className='text-center my-5'>Already have An Account ? <Link to="/login" className="text-blue-600 font-bold">Login</Link></p>
