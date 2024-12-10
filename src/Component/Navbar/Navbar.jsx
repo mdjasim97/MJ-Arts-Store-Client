@@ -48,10 +48,10 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar bg-[#171b4e] text-white px-36 py-5">
+      <div className=" navbar bg-[#171b4e] text-white md:px-36 py-5">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} role="button" className="lg:hidden mr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -69,12 +69,12 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#23BE0A] rounded-box w-52"
+              className="menu menu-sm dropdown-content bg-[#171b4e] mt-3 z-[1] p-2 shadow rounded-box w-52"
             >
               {links}
             </ul>
           </div>
-          <a className="text-2xl font-Alegreya gap-0 lg:text-4xl font-bold">
+          <a className="text-lg md:text-xl font-Alegreya gap-0 lg:text-3xl font-bold">
             Artistry <span className="text-orange-400">Corner</span>
           </a>
         </div>
@@ -86,17 +86,17 @@ const Navbar = () => {
             <>
               <img
                 src={user?.photoURL}
-                className="mr-2 w-12 h-12 rounded-full border-2 border-orange-400"
+                className="mr-2 w-8 h-8 hidden md:block md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full border-2 border-orange-400"
                 alt="User Profile picture"
                 title={user.displayName}
               />
 
               <button
                 onClick={handleLogOut}
-                className="btn bg-transparent text-white text-base lg:text-xl"
+                className="btn btn-sm md:btn-md bg-transparent text-white border-white text-base lg:text-xl"
               >
                 {" "}
-                <GrLogout size={24} /> logout
+                <GrLogout className="text-xl lg:text-2xl"/> logout
               </button>
             </>
           ) : (
@@ -114,7 +114,7 @@ const Navbar = () => {
             </>
           )}
 
-          <label className="cursor-pointer grid place-items-center ml-1">
+          <label className="cursor-pointer hidden 2xl:grid place-items-center ml-1">
             <input
               type="checkbox"
               onChange={handleThemeToggle}
