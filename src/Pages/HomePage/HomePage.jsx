@@ -4,15 +4,15 @@ import { useLoaderData } from "react-router-dom";
 import CraftCard from "../../Component/CraftCard/CraftCard";
 
 const HomePage = () => {
-  const craftitem = useLoaderData();
-  console.log(craftitem);
+  const craftItem = useLoaderData();
+  console.log(craftItem);
 
   return (
     <div>
       <Banner />
 
       <div className="text-center my-10 space-y-3">
-        <h1 className="text-4xl font-Alegreya font-bold">Craft Items Section </h1>
+        <h1 className="text-4xl font-Alegreya font-bold">Craft <span className="text-orange-400">Items</span> Section </h1>
         <p className="font-raleway">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus,
           autem.
@@ -20,7 +20,7 @@ const HomePage = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        {craftitem?.slice(0, 6).map((craft, index) => (
+        {craftItem?.slice(0, 6).map((craft, index) => (
           <CraftCard key={index} craftData={craft}></CraftCard>
         ))}
       </div>

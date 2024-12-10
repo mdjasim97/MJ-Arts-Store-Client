@@ -123,25 +123,25 @@ const Login = () => {
           {successful && (
             <p className="text-green-400 font-bold text-center">{successful}</p>
           )}
-        </div>
 
-        <div className="space-y-3 lg:my-10 ">
-          <h1 className="text-center text-black lg:text-white text-base">
-            Login With
-          </h1>
-          <div className="flex flex-col md:flex-row md:w-1/2 mx-auto items-center justify-center gap-2">
-            <button onClick={handleGoogleSingIn} className="btn w-full">
-              {" "}
-              <FcGoogle className="text-2xl" /> Google
-            </button>
-            <button onClick={handleGoogleSingIn} className="btn w-full">
-              {" "}
-              <FaGithub className="text-2xl" /> GitHub
-            </button>
-            <button onClick={handleGoogleSingIn} className="btn w-full">
-              {" "}
-              <FaFacebook className="text-blue-600 text-2xl" /> Facebook
-            </button>
+          <div className="space-y-3">
+            <h1 className="text-center text-black mt-5 text-base">
+              Login With
+            </h1>
+            <div className="flex flex-col md:flex-row  mx-auto items-center justify-center gap-2">
+              <button onClick={handleGoogleSingIn} className="btn w-full md:w-auto">
+                {" "}
+                <FcGoogle className="text-2xl" /> Google
+              </button>
+              <button onClick={handleGoogleSingIn} className="btn w-full md:w-auto">
+                {" "}
+                <FaGithub className="text-2xl" /> GitHub
+              </button>
+              <button onClick={handleGoogleSingIn} className="btn w-full md:w-auto">
+                {" "}
+                <FaFacebook className="text-blue-600 text-2xl" /> Facebook
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -96,20 +96,23 @@ const Navbar = () => {
                 className="btn btn-sm md:btn-md bg-transparent text-white border-white text-base lg:text-xl"
               >
                 {" "}
-                <GrLogout className="text-xl lg:text-2xl"/> logout
+                <GrLogout className="text-xl lg:text-2xl" /> logout
               </button>
             </>
           ) : (
             <>
-              <Link to="/login">
-                <button className="btn mr-1 bg-transparent border-none hover:bg-orange-400 text-white text-base lg:text-xl">
-                  Login
-                </button>
+              <Link
+                to="/login"
+                className="btn btn-sm md:btn-md mr-1 bg-transparent border-none hover:bg-orange-400 text-white text-base lg:text-xl"
+              >
+                Login
               </Link>
-              <Link to="/signup">
-                <button className="btn bg-transparent border-white border text-white hover:bg-orange-400 text-base lg:text-xl">
-                  SignUp
-                </button>
+
+              <Link
+                to="/signup"
+                className="btn btn-sm md:btn-md bg-transparent border-white border text-white hover:bg-orange-400 text-base"
+              >
+                SignUp
               </Link>
             </>
           )}
