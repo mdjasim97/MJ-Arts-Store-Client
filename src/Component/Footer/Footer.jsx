@@ -1,12 +1,11 @@
-import React from 'react';
 
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-center bg-[#23BE0A] text-white ">
+            <footer className="footer footer-center bg-[#1e2264] text-white ">
                 <aside className='pt-10'>
-                    <img src="https://i.postimg.cc/c1MD2gGt/logo.jpg" className='h-16' alt="" />
-                    <p className="font-bold text-4xl">MJU Art & Craft Ltd.</p>
+                    <img src="https://i.postimg.cc/c1MD2gGt/logo.jpg" className='h-16 border-2 border-white rounded-full' alt="" />
+                    <p className="font-bold text-4xl">Artistry <span className="text-orange-400">Corner</span></p>
                     <p className='text-xl'> Your happiness is the key to our success</p>
                 </aside>
                 <nav>
@@ -17,7 +16,7 @@ const Footer = () => {
                     </div>
                 </nav>
 
-                <p className='pb-5'>Copyright © 2024 - All right reserved</p>
+                <p className='pb-5 bg-[#171b4e] w-full py-5'>Copyright © 2024 - All right reserved</p>
             </footer>
         </div>
     );
